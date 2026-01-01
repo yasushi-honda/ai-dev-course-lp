@@ -105,6 +105,44 @@
             background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
             border-radius: 50%;
         }
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: float 15s infinite ease-in-out;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+        }
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 18s; width: 12px; height: 12px; }
+        .particle:nth-child(2) { left: 20%; top: 60%; animation-delay: 2s; animation-duration: 14s; width: 8px; height: 8px; }
+        .particle:nth-child(3) { left: 35%; top: 30%; animation-delay: 4s; animation-duration: 20s; width: 14px; height: 14px; }
+        .particle:nth-child(4) { left: 50%; top: 70%; animation-delay: 1s; animation-duration: 16s; width: 10px; height: 10px; }
+        .particle:nth-child(5) { left: 65%; top: 25%; animation-delay: 3s; animation-duration: 19s; width: 16px; height: 16px; }
+        .particle:nth-child(6) { left: 75%; top: 55%; animation-delay: 5s; animation-duration: 15s; width: 8px; height: 8px; }
+        .particle:nth-child(7) { left: 85%; top: 35%; animation-delay: 2.5s; animation-duration: 17s; width: 12px; height: 12px; }
+        .particle:nth-child(8) { left: 90%; top: 75%; animation-delay: 0.5s; animation-duration: 21s; width: 10px; height: 10px; }
+        .particle:nth-child(9) { left: 5%; top: 80%; animation-delay: 3.5s; animation-duration: 13s; width: 14px; height: 14px; }
+        .particle:nth-child(10) { left: 45%; top: 15%; animation-delay: 1.5s; animation-duration: 22s; width: 10px; height: 10px; }
+        .particle:nth-child(11) { left: 55%; top: 85%; animation-delay: 4.5s; animation-duration: 16s; width: 8px; height: 8px; }
+        .particle:nth-child(12) { left: 25%; top: 45%; animation-delay: 2.2s; animation-duration: 18s; width: 12px; height: 12px; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.5; }
+            25% { transform: translateY(-40px) translateX(15px) scale(1.2); opacity: 0.7; }
+            50% { transform: translateY(-20px) translateX(-15px) scale(0.9); opacity: 0.6; }
+            75% { transform: translateY(-50px) translateX(10px) scale(1.1); opacity: 0.8; }
+        }
         .hero-container {
             max-width: 1000px;
             margin: 0 auto;
@@ -619,6 +657,20 @@
     </nav>
 
     <section class="hero">
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
         <div class="hero-container">
             <span class="hero-badge">集中講座</span>
             <h1>AIで<span>アプリ開発</span>を<br>体験から本格開発まで</h1>
@@ -836,12 +888,12 @@
                         </div>
                         <div class="session-item">
                             <div class="session-time">
-                                <div class="session-duration">20</div>
+                                <div class="session-duration">10</div>
                                 <div class="session-unit">分</div>
                             </div>
                             <div class="session-content">
-                                <h4>共有方法とセキュリティ注意点</h4>
-                                <p>アプリの共有方法を説明。フロントエンドのみでバックエンド（データ保存）ができない点、個人情報を入れてはいけないセキュリティ上の注意点を解説します。</p>
+                                <h4>共有方法とセキュリティ</h4>
+                                <p>作ったアプリの共有方法と、安全に使うためのポイントを解説します。</p>
                                 <div class="session-tags">
                                     <span class="session-tag lecture">講義</span>
                                 </div>
@@ -849,7 +901,7 @@
                         </div>
                         <div class="session-item">
                             <div class="session-time">
-                                <div class="session-duration">10</div>
+                                <div class="session-duration">20</div>
                                 <div class="session-unit">分</div>
                             </div>
                             <div class="session-content">
@@ -866,7 +918,7 @@
                 <div class="day-block">
                     <div class="day-header">
                         <span class="day-badge">Day 2</span>
-                        <span class="day-title">ドキュメント駆動開発 〜 メンテナンスできるアプリへ</span>
+                        <span class="day-title">より良いアプリへ 〜 長く使えるアプリを作るコツ</span>
                     </div>
                     <div class="session-list">
                         <div class="session-item">
@@ -875,8 +927,8 @@
                                 <div class="session-unit">分</div>
                             </div>
                             <div class="session-content">
-                                <h4>ドキュメント駆動の重要性</h4>
-                                <p>Vibe Codingだけで大きなアプリを作ると「何もわからないブラックボックス」になる問題を解説。設計・意図を記録することでメンテナンス性が向上することを理解します。</p>
+                                <h4>より良いアプリを作るコツ</h4>
+                                <p>作ったアプリを長く使い続けるためのポイントを学びます。設計メモの残し方など、実践的なテクニックを紹介します。</p>
                                 <div class="session-tags">
                                     <span class="session-tag lecture">講義</span>
                                 </div>
@@ -902,8 +954,8 @@
                                 <div class="session-unit">分</div>
                             </div>
                             <div class="session-content">
-                                <h4>ドキュメント駆動でアプリ開発</h4>
-                                <p>作成したドキュメントを元にBuildでアプリを作成。開発の区切りごとにドキュメントを更新し、メンテナンス可能な状態を維持する方法を実践します。</p>
+                                <h4>設計メモを活かしたアプリ開発</h4>
+                                <p>学んだテクニックを使って実際にアプリを作成。修正や機能追加がしやすいアプリの作り方を実践します。</p>
                                 <div class="session-tags">
                                     <span class="session-tag hands-on">実習</span>
                                     <span class="session-tag tool">AI Studio Build</span>
@@ -917,7 +969,7 @@
                             </div>
                             <div class="session-content">
                                 <h4>Day 2 クロージング</h4>
-                                <p>2日間の総括とQ&A。Vibe Codingからドキュメント駆動開発への流れを振り返り、本気コースの紹介とアンケートを実施します。</p>
+                                <p>2日間の総括とQ&A。Buildで作れるアプリの特徴と、データ保存など本格開発への次のステップも紹介。本気コースの案内とアンケートを実施します。</p>
                                 <div class="session-tags">
                                     <span class="session-tag lecture">講義</span>
                                 </div>
@@ -949,12 +1001,12 @@
                         </div>
                         <div class="session-item">
                             <div class="session-time">
-                                <div class="session-duration">50</div>
+                                <div class="session-duration">30</div>
                                 <div class="session-unit">分</div>
                             </div>
                             <div class="session-content">
-                                <h4>Vibe Coding体験（比較用）</h4>
-                                <p>Google AI Studio Buildでアプリを生成。自然言語からアプリが生まれる体験と、その限界（フロントエンドのみ）を理解します。</p>
+                                <h4>AI Studio Buildとの違いを体験</h4>
+                                <p>Buildで簡単なアプリを作り、この後のClaude Codeとの違いを実感するための準備をします。体験コース受講済みの方は復習として。</p>
                                 <div class="session-tags">
                                     <span class="session-tag hands-on">実習</span>
                                     <span class="session-tag tool">AI Studio Build</span>
@@ -993,7 +1045,7 @@
                         </div>
                         <div class="session-item">
                             <div class="session-time">
-                                <div class="session-duration">10</div>
+                                <div class="session-duration">20</div>
                                 <div class="session-unit">分</div>
                             </div>
                             <div class="session-content">
@@ -1064,8 +1116,8 @@
                                 <div class="session-unit">分</div>
                             </div>
                             <div class="session-content">
-                                <h4>Vertex AI概要（オプション）</h4>
-                                <p>Gemini API からVertex AIへの移行意義を解説。Workload Identityによるセキュアな連携の概念を紹介します。</p>
+                                <h4>Vertex AI概要</h4>
+                                <p>Gemini API からVertex AIへの移行意義を解説。次のステップとして知っておくと役立つ内容を紹介します。</p>
                                 <div class="session-tags">
                                     <span class="session-tag lecture">講義</span>
                                     <span class="session-tag tool">Vertex AI</span>
@@ -1093,7 +1145,7 @@
                             </div>
                             <div class="session-content">
                                 <h4>クロージング</h4>
-                                <p>総括とQ＆A。応用編・プロ編の紹介、アンケート実施。</p>
+                                <p>総括とQ＆A。さらに学びたい方へのご案内、アンケート実施。</p>
                                 <div class="session-tags">
                                     <span class="session-tag lecture">講義</span>
                                 </div>
